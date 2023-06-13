@@ -58,5 +58,3 @@ def delete_pasiens(id_pasien):
     return jsonify(delete_pasien(id_pasien))
 
 
-if __name__ == "__main__":
-    app.run(debug=True, port=4444)
