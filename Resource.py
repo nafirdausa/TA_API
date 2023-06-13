@@ -1,13 +1,13 @@
 from Data import *
 from flask import Flask, request, jsonify
-from flask_basicauth import BasicAuth
+# from flask_basicauth import BasicAuth
 
 
 app = Flask(__name__)
 
 app.config['BASIC_AUTH_USERNAME'] = 'admin'
 app.config['BASIC_AUTH_PASSWORD'] = 'admin123'
-basic_auth = BasicAuth(app)
+# basic_auth = BasicAuth(app)
 
 #============== RESOURCE ============#
 
@@ -15,7 +15,7 @@ basic_auth = BasicAuth(app)
 
 
 @app.route('/pasien', methods=['GET'])
-@basic_auth.required
+# @basic_auth.required
 def pasien():
     pasiens = get_pasiens()
     if pasiens:
@@ -27,7 +27,7 @@ def pasien():
 
 
 @app.route('/pasien/<id_pasien>', methods=['GET'])
-@basic_auth.required
+# @basic_auth.required
 def get_pasiens_by_id(id_pasien):
     return jsonify(get_pasien_by_id(id_pasien))
 
@@ -35,7 +35,7 @@ def get_pasiens_by_id(id_pasien):
 
 
 @app.route('/pasien', methods=['POST'])
-@basic_auth.required
+# @basic_auth.required
 def add_pasiens():
     pasien = request.get_json()
     return jsonify(insert_pasien(pasien))
@@ -44,7 +44,7 @@ def add_pasiens():
 
 
 @app.route('/pasien', methods=['PUT'])
-@basic_auth.required
+# @basic_auth.required
 def update_pasiens():
     pasien = request.get_json()
     return jsonify(update_pasien(pasien))
@@ -53,7 +53,7 @@ def update_pasiens():
 
 
 @app.route('/pasien/<id_pasien>', methods=['DELETE'])
-@basic_auth.required
+# @basic_auth.required
 def delete_pasiens(id_pasien):
     return jsonify(delete_pasien(id_pasien))
 
