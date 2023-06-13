@@ -10,6 +10,12 @@ app.config['BASIC_AUTH_PASSWORD'] = 'admin123'
 # basic_auth = BasicAuth(app)
 
 #============== RESOURCE ============#
+@app.route('/create-db', methods=['GET'])
+# @basic_auth.required
+def pasien():
+    create_db_table()
+    return jsonify({'message': 'DB Created'}), 201
+
 
 # resource get semua pasien
 
